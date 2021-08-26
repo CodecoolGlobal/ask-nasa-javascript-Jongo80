@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Fetched from './Fetched'
-import Date from "./Date";
+import Fetched from './Components/Fetched'
+import Date from "./Components/Date";
 
 class App extends Component {
   state = {
