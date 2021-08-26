@@ -6,7 +6,7 @@ const Date = (props) => {
             <form onSubmit={props.date}>
                 <label htmlFor="date">Write here the date (YYYY-MM-DD)</label><br />
                 <input name="date" /><br />
-                <input type="submit" /><br />
+                <input type="submit" value="Submit"/><br />
             </form>
         </div>
     )

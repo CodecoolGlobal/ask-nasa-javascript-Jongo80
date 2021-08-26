@@ -25,6 +25,7 @@ class App extends Component {
     return (
       <div>
         <header>Astronomy Picture of the Day</header>
+        <br />
         <Date date={this.changeDate}/>
         <Fetched photo={this.state.photo}/>
       </div>
