@@ -1,16 +1,22 @@
 import React, { Component } from "react";
 import Fetched from './Fetched'
+import Date from "./Date";
 
 class App extends Component {
   state = {
-    date: "2020-09-2",
+    date: "",
     PhotoFromapi: "",
     photo: []
   }
 
-  componentDidMount() {
-    console.log("asd")
-    fetch(`https://api.nasa.gov/planetary/apod?date=${this.state.date}&api_key=DEMO_KEY`)
+  changeDate = e => {
+    e.preventDefault()
+    let dateFromInput = e.target[0].value;
+    this.newRequest(dateFromInput)
+  }
+
+  newRequest = (date) => {
+    fetch(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=DEMO_KEY`)
       .then(response => response.json())
       .then(photoData => this.setState({ photo: photoData }));
   }
@@ -19,6 +25,7 @@ class App extends Component {
     return (
       <div>
         <header>Astronomy Picture of the Day</header>
+        <Date date={this.changeDate}/>
         <Fetched photo={this.state.photo}/>
       </div>
     )
